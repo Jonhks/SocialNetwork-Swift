@@ -285,6 +285,7 @@
                         <outlet property="tabla" destination="hEQ-u6-7ll" id="y5u-Hd-QgT"/>
                         <outlet property="textPost" destination="jug-4G-pYg" id="QoN-Dp-jOX"/>
                         <outlet property="vistaAgregar" destination="L5k-Kc-Kob" id="IAe-k5-S2c"/>
+                        <segue destination="r6Z-JC-0kQ" kind="show" identifier="editar" id="egB-iq-Kqj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzU-Zm-6u0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -331,6 +332,88 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="797.60000000000002" y="-312.59370314842579"/>
+        </scene>
+        <!--Crud View Controller-->
+        <scene sceneID="z9H-PS-IJP">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="r6Z-JC-0kQ" customClass="CrudViewController" customModule="firebasePost" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1W7-9Z-3CB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeJ-1N-aCB">
+                                <rect key="frame" x="0.0" y="31" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Post" id="ZGr-9v-0lU">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hnv-0d-pFF">
+                                            <connections>
+                                                <action selector="cancelar:" destination="r6Z-JC-0kQ" id="lex-5X-FH8"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="trash" id="86m-SQ-zmG">
+                                                <connections>
+                                                    <action selector="borrar:" destination="r6Z-JC-0kQ" id="V7E-Xd-xna"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="edit" id="N0e-On-fQf">
+                                                <connections>
+                                                    <action selector="editar:" destination="r6Z-JC-0kQ" id="ecT-VF-2qd"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1aM-WD-Ade">
+                                <rect key="frame" x="16" y="130" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3CY-U1-B5y"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1X-GJ-9PJ">
+                                <rect key="frame" x="94" y="130" width="265" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y74-uo-Ve0">
+                                <rect key="frame" x="16" y="215" width="343" height="432"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1aM-WD-Ade" firstAttribute="leading" secondItem="y74-uo-Ve0" secondAttribute="leading" id="2Pe-rm-d3U"/>
+                            <constraint firstItem="IeJ-1N-aCB" firstAttribute="centerX" secondItem="y74-uo-Ve0" secondAttribute="centerX" id="LZ1-MQ-v02"/>
+                            <constraint firstItem="IeJ-1N-aCB" firstAttribute="top" secondItem="2jG-IP-9zp" secondAttribute="top" constant="31" id="LuG-JZ-Yp2"/>
+                            <constraint firstItem="H1X-GJ-9PJ" firstAttribute="trailing" secondItem="y74-uo-Ve0" secondAttribute="trailing" id="RBq-qO-N7p"/>
+                            <constraint firstItem="H1X-GJ-9PJ" firstAttribute="leading" secondItem="1aM-WD-Ade" secondAttribute="trailing" constant="8" id="Xbu-DT-6Fn"/>
+                            <constraint firstItem="y74-uo-Ve0" firstAttribute="top" secondItem="H1X-GJ-9PJ" secondAttribute="bottom" constant="64" id="ZyY-Un-0mN"/>
+                            <constraint firstItem="1aM-WD-Ade" firstAttribute="leading" secondItem="1W7-9Z-3CB" secondAttribute="leadingMargin" id="efo-XN-f3z"/>
+                            <constraint firstItem="H1X-GJ-9PJ" firstAttribute="trailing" secondItem="1W7-9Z-3CB" secondAttribute="trailingMargin" id="eqR-sV-XLk"/>
+                            <constraint firstItem="y74-uo-Ve0" firstAttribute="top" secondItem="1aM-WD-Ade" secondAttribute="bottom" constant="15" id="iEj-Mw-aeb"/>
+                            <constraint firstItem="1aM-WD-Ade" firstAttribute="top" secondItem="H1X-GJ-9PJ" secondAttribute="top" id="qfm-Ek-gq9"/>
+                            <constraint firstItem="IeJ-1N-aCB" firstAttribute="leading" secondItem="2jG-IP-9zp" secondAttribute="leading" id="ts7-KX-5QQ"/>
+                            <constraint firstItem="1aM-WD-Ade" firstAttribute="top" secondItem="IeJ-1N-aCB" secondAttribute="bottom" constant="55" id="uWt-j1-bZ3"/>
+                            <constraint firstItem="2jG-IP-9zp" firstAttribute="bottom" secondItem="y74-uo-Ve0" secondAttribute="bottom" constant="20" id="ynU-wI-IXB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2jG-IP-9zp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5Em-tn-aHy"/>
+                    <connections>
+                        <outlet property="botonBorrar" destination="86m-SQ-zmG" id="AvY-pL-3zV"/>
+                        <outlet property="botonEditar" destination="N0e-On-fQf" id="8zj-cM-F9o"/>
+                        <outlet property="imagenPerfil" destination="1aM-WD-Ade" id="qli-Pp-Gnj"/>
+                        <outlet property="texto" destination="y74-uo-Ve0" id="KA3-Tp-MjB"/>
+                        <outlet property="user" destination="H1X-GJ-9PJ" id="zsz-Hh-eUO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KOL-76-HuL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608.8" y="-313.49325337331339"/>
         </scene>
     </scenes>
     <resources>

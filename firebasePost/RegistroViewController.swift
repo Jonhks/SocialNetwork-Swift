@@ -83,6 +83,8 @@ class RegistroViewController: UIViewController, UIImagePickerControllerDelegate,
             "imagenPerfil": String(describing: directorio)
         ]
         ref.child("users").child(idUser).setValue(campos)
+        dismiss(animated: true, completion: nil)
+
     }
     
     @IBAction func cancelar(_ sender: UIBarButtonItem) {

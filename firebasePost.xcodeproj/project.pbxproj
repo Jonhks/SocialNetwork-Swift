@@ -21,6 +21,7 @@
 		FBB06EE0239F4C8A00127B28 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB06EDF239F4C8A00127B28 /* Users.swift */; };
 		FBB06EE2239F59FE00127B28 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB06EE1239F59FE00127B28 /* Posts.swift */; };
 		FBB06EE6239F7A5E00127B28 /* MyCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB06EE5239F7A5E00127B28 /* MyCellTableViewCell.swift */; };
+		FBB06EE8239F806900127B28 /* CrudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB06EE7239F806900127B28 /* CrudViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FBB06EDF239F4C8A00127B28 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		FBB06EE1239F59FE00127B28 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		FBB06EE5239F7A5E00127B28 /* MyCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCellTableViewCell.swift; sourceTree = "<group>"; };
+		FBB06EE7239F806900127B28 /* CrudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				FBB06EDF239F4C8A00127B28 /* Users.swift */,
 				FBB06EE1239F59FE00127B28 /* Posts.swift */,
 				FBB06EE5239F7A5E00127B28 /* MyCellTableViewCell.swift */,
+				FBB06EE7239F806900127B28 /* CrudViewController.swift */,
 			);
 			path = firebasePost;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			files = (
 				FBB06EDA239ECB6F00127B28 /* LoginViewController.swift in Sources */,
 				FBB06EDE239EDA8300127B28 /* RegistroViewController.swift in Sources */,
+				FBB06EE8239F806900127B28 /* CrudViewController.swift in Sources */,
 				FBB06ECB239EC27D00127B28 /* firebasePost.xcdatamodeld in Sources */,
 				FBB06EC1239EC27D00127B28 /* AppDelegate.swift in Sources */,
 				FBB06EDC239ED63B00127B28 /* InicioViewController.swift in Sources */,

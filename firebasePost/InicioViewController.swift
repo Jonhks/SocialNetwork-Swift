@@ -71,6 +71,21 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
       }
       
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "editar", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editar"{
+            if let id = tabla.indexPathForSelectedRow {
+                let fila = postsLists[id.row]
+                let destino = segue.destination as? CrudViewController
+                destino?.post = fila
+            }
+        }
+    }
+    
+    
     @IBAction func guardarPost(_ sender: UIBarButtonItem) {
         guard let idPost = ref.childByAutoId().key else { return }
         guard let idUser = Auth.auth().currentUser?.uid else { return }
@@ -80,8 +95,8 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let campos = [
             "texto": texto,
             "user": user,
-            "isPost": idPost,
-            "isUser": idUser,
+            "idPost": idPost,
+            "idUser": idUser,
             "imagenPerfil": imagenPerfil
         ]
         
