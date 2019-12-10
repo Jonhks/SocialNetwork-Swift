@@ -45,9 +45,10 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
       }
       
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCellTableViewCell
         let post = postsLists[indexPath.row]
-        cell.textLabel?.text = post.texto
+        cell.user.text = post.user
+        cell.texto.text = post.texto
         return cell
       }
       

@@ -20,6 +20,7 @@
 		FBB06EDE239EDA8300127B28 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB06EDD239EDA8300127B28 /* RegistroViewController.swift */; };
 		FBB06EE0239F4C8A00127B28 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB06EDF239F4C8A00127B28 /* Users.swift */; };
 		FBB06EE2239F59FE00127B28 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB06EE1239F59FE00127B28 /* Posts.swift */; };
+		FBB06EE6239F7A5E00127B28 /* MyCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB06EE5239F7A5E00127B28 /* MyCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FBB06EDD239EDA8300127B28 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		FBB06EDF239F4C8A00127B28 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		FBB06EE1239F59FE00127B28 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		FBB06EE5239F7A5E00127B28 /* MyCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				FBB06EDD239EDA8300127B28 /* RegistroViewController.swift */,
 				FBB06EDF239F4C8A00127B28 /* Users.swift */,
 				FBB06EE1239F59FE00127B28 /* Posts.swift */,
+				FBB06EE5239F7A5E00127B28 /* MyCellTableViewCell.swift */,
 			);
 			path = firebasePost;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				FBB06EC1239EC27D00127B28 /* AppDelegate.swift in Sources */,
 				FBB06EDC239ED63B00127B28 /* InicioViewController.swift in Sources */,
 				FBB06EC3239EC27D00127B28 /* SceneDelegate.swift in Sources */,
+				FBB06EE6239F7A5E00127B28 /* MyCellTableViewCell.swift in Sources */,
 				FBB06EE0239F4C8A00127B28 /* Users.swift in Sources */,
 				FBB06EE2239F59FE00127B28 /* Posts.swift in Sources */,
 			);
