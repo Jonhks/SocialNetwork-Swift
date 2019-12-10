@@ -84,6 +84,7 @@ class RegistroViewController: UIViewController, UIImagePickerControllerDelegate,
         ]
         ref.child("users").child(idUser).setValue(campos)
         dismiss(animated: true, completion: nil)
+        
 
     }
     

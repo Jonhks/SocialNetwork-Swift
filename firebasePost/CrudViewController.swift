@@ -20,20 +20,39 @@ class CrudViewController: UIViewController {
     @IBOutlet weak var botonEditar: UIBarButtonItem!
     
     var post: Posts!
+    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+
         llenarCampos()
         esconderBotones()
 
     }
     
     @IBAction func editar(_ sender: UIBarButtonItem) {
+        let idPost = post.idPost
+        let user = post.user
+        let idUser = post.idPost
+        let imagenPerfil = post.fotoPerfil
+        guard let text = texto.text else { return }
         
+        let campos = [
+            "user" : user,
+            "texto": text,
+            "idPost": idPost,
+            "idUser": idUser,
+            "imagenPerfil": imagenPerfil
+        ]
+        ref.child("posts").child(idPost!).setValue(campos)
     }
     
     @IBAction func borrar(_ sender: UIBarButtonItem) {
-        
+        guard let idPost = post.idPost else { return }
+        ref.child("posts").child(idPost).removeValue()
+        dismiss(animated: true, completion: nil)
+
     }
     
     @IBAction func cancelar(_ sender: UIBarButtonItem) {
@@ -64,7 +83,6 @@ class CrudViewController: UIViewController {
     func esconderBotones () {
         guard let idUser = Auth.auth().currentUser?.uid else { return }
         let idUserPost = post.idUser
-        print(idUserPost)
         if idUser != idUserPost{
             self.botonBorrar.isEnabled = false
             self.botonEditar.isEnabled = false

@@ -11,10 +11,13 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 
-class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+    
+    
     
     var userList = [Users]()
     var postsLists = [Posts]()
+    var filterPosts = [Posts]()
     
     var ref: DatabaseReference!
     
@@ -24,10 +27,16 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     let customView = UIView()
-    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Buscador programatico
+        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tabla.tableHeaderView = searchController.searchBar
         
         tabla.delegate = self
         tabla.dataSource = self
@@ -42,12 +51,23 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postsLists.count
+        if searchController.isActive && searchController.searchBar.text != ""{
+            return filterPosts.count
+        } else {
+            return postsLists.count
+        }
       }
       
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCellTableViewCell
-        let post = postsLists[indexPath.row]
+        let post: Posts
+        if searchController.isActive && searchController.searchBar.text != ""{
+            post = filterPosts[indexPath.row]
+        } else {
+            post = postsLists[indexPath.row]
+
+        }
+        
         cell.user.text = post.user
         cell.texto.text = post.texto
         
@@ -176,5 +196,18 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
+    func updateSearchResults(for searchController: UISearchController) {
+        filtroContenido(buscador: self.searchController.searchBar.text!)
+      }
 
+    func filtroContenido (buscador: String){
+        self.filterPosts = postsLists.filter{ user in
+            let userName = user.user
+            return((userName?.lowercased().contains(buscador.lowercased()))!)
+        }
+        DispatchQueue.main.async {
+            self.tabla.reloadData()
+        }
+    }
 }
+
