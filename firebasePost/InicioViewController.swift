@@ -36,6 +36,7 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         
         vistaAgregar.layer.cornerRadius =  10
+        tabla.separatorColor = UIColor(white: 0.95, alpha: 1)
         selectUser()
         selectPosts()
     }
@@ -49,6 +50,23 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let post = postsLists[indexPath.row]
         cell.user.text = post.user
         cell.texto.text = post.texto
+        
+//        if let urlFotoPerfil = post.fotoPerfil{
+//            let storageImagen = Storage.storage().reference(forURL: urlFotoPerfil)
+//            storageImagen.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+//                if let error = error?.localizedDescription{
+//                    print("Fallo la carga de la imagen", error)
+//                } else {
+//                    if let imagen = data{
+//                        cell.imagenPerfil.image = UIImage(data: imagen)
+//                        cell.imagenPerfil.layer.cornerRadius = cell.imagenPerfil.frame.size.width/2
+//                        cell.imagenPerfil.clipsToBounds = true
+//                    }
+//                }
+//            }
+//        }
+        cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+
         return cell
       }
       
